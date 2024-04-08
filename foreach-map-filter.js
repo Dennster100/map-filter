@@ -113,19 +113,25 @@ function find(arr, num) {
     return newArr[0];
 }
 
-function findInObj(arr, key) {
+function findInObj(arr, key,bool) {
     const newArr = arr.filter(function (el) {
         return el[key] === true;
     });
-
-    return newArr[0];
+    if (!bool){return undefined}else{
+        return newArr[0];
+    }
 }
 
-function removeVowles(word) {
+function removeVowels(word) {
     const newArr = Array.from(word).filter(function (el) {
         return !isVowel(el.toLowerCase()); 
     });
-    return newArr.toString().toLowerCase();
+    let string = '';
+    for(let char of newArr){
+        string = string + char;
+    }
+    return string.toLowerCase();
+
 }
     
 function doubleOddNumbers(arr) {
@@ -138,7 +144,7 @@ function doubleOddNumbers(arr) {
 }
 
 const doubledOdd = doubleOddNumbers(nums);
-const removedVowels = removeVowles('elleiealllea');
+const removedVowels = removeVowels('elleiealllea');
 const findIn = findInObj(catOwners,'isCatOwner');
 const findNum = find(nums, 10);
 const isCatOwner = filterByValue(catOwners, 'isCatOwner');
@@ -151,4 +157,3 @@ const newObjArr = addKeyAndValue(objArr);
 const firstAndLast = showFirstAndLast(words);
 const numsEven = onlyEvenValues(nums);
 const numsDoubled = doubleValues(nums);
-
